@@ -3,8 +3,11 @@
 	padding: 0;
 	margin: 0;
 	border: 0;
-	box-sizing: border-box;
     font-family: Montserrat;
+}
+
+html {
+	font-size: 62.5%;
 }
 
 body {
@@ -13,26 +16,27 @@ body {
 
 h1 {
     text-align: center;
-    margin: 30px 0;
+    margin: 3rem 0;
     color: #FFF;
 }
 
 /* calculadora */
 #calculator {
     background-color: #1D293A;
-    width: 420px;
-    height: 420px;
+    width: 40rem;
+    height: 40rem;
     margin: 0 auto;
-    padding: 30px 0 50px;
+    padding: 3rem 0 5rem;
 }
 
 #screen-container {
-    margin: 0 auto;
-    padding: 10px;
-    width: 258px;
-    height: 70px;
-    border: 1px solid #354357;
+    margin: 0 auto 3rem;
+    padding: 1rem;
+    width: 25.8rem;
+    height: 7rem;
+    border: .1rem solid #354357;
     text-align: right;
+    box-sizing: border-box;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -44,7 +48,50 @@ h1 {
 
 #result-number {
     font-weight: bold;
-    margin: 5px 0 0;
-    font-size: 22px;
+    margin: .5rem 0 0;
+    font-size: 2.2rem;
     clear: both;
+}
+
+.btn-container {
+    position: relative;
+    margin: 0 auto 1.5rem;
+    width: 30rem;
+    text-align: center;
+}
+
+.btn {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 .75rem;
+    line-height: 5rem;
+    text-align: center;
+    color: #FFF;
+    background-color: #354357;
+    font-weight: bold;
+    font-size: 1.8rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #6C63FF;
+}
+
+#ac-btn {
+    margin-left: -20rem;
+}
+
+#division-btn {
+    position: absolute;
+    right: 1.4rem;
+}
+
+#zero-btn, #equals-btn {
+    width: 12rem;
+}
+
+.operator {
+    font-weight: 300;
+    font-size: 2rem;
 }
