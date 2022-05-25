@@ -1,6 +1,50 @@
+/* geral */
 * {
 	padding: 0;
 	margin: 0;
 	border: 0;
 	box-sizing: border-box;
+    font-family: Montserrat;
+}
+
+body {
+    background-color: #0F1722;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+    color: #FFF;
+}
+
+/* calculadora */
+#calculator {
+    background-color: #1D293A;
+    width: 420px;
+    height: 420px;
+    margin: 0 auto;
+    padding: 30px 0 50px;
+}
+
+#screen-container {
+    margin: 0 auto;
+    padding: 10px;
+    width: 258px;
+    height: 70px;
+    border: 1px solid #354357;
+    text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#upper-number, #result-number {
+    float: right;
+    color: #FFF;
+}
+
+#result-number {
+    font-weight: bold;
+    margin: 5px 0 0;
+    font-size: 22px;
+    clear: both;
 }
