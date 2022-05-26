@@ -32,6 +32,18 @@ class Calculator {
         for(let i = 0; i <= l; i++) {
             let actualItem = upperValueArray[i];
 
+            if (actualItem == '/') {
+                result = parseFloat(upperValueArray[i - 1]) / parseFloat(upperValueArray[i + 1]);
+            }
+
+            if (actualItem == 'x') {
+                result = parseFloat(upperValueArray[i - 1]) * parseFloat(upperValueArray[i + 1]);
+            }
+
+            if (actualItem == '-') {
+                result = parseFloat(upperValueArray[i - 1]) - parseFloat(upperValueArray[i + 1]);
+            }
+
             if (actualItem == '+') {
                 result = parseFloat(upperValueArray[i - 1]) + parseFloat(upperValueArray[i + 1]);
             }
