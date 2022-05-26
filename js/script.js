@@ -37,7 +37,9 @@ class Calculator {
             }
 
             // adiciona espaços para os operadores
-        
+            if(!reg.test(input)) {
+                input = ` ${input} `;
+            }        
             if(upperValue == '0') {
                 calc.upperValue.textContent = input;
 
