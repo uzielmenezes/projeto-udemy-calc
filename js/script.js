@@ -52,24 +52,41 @@ class Calculator {
         let result = 0;
 
         for(let i = 0; i <= l; i++) {
+            let operation = 0;
             let actualItem = upperValueArray[i];
             let n1 = upperValueArray[i - 1];
             let n2 = upperValueArray[i + 1];
 
-            if (actualItem == '/') {
-                result = calc.division(n1, n2);
-            }
-
             if (actualItem == 'x') {
                 result = calc.multiplication(n1, n2);
-            }
+                // força passagem na condição após o primeiro cálculo
+                operation = 1;
 
-            if (actualItem == '-') {
-                result = calc.minus(n1, n2);
-            }
+            } else if(actualItem == '/') {
+                result = calc.division(n1, n2);
+                operation = 1;
 
-            if (actualItem == '+') {
-                result = calc.sum(n1, n2);
+                // checa para manter multiplicação e divisão como prioridade
+            } else if (!upperValueArray.includes('x') && !upperValueArray.includes('/')) {
+                //soma e subtração
+                if(actualItem == '+') {
+                    result = calc.sum(n1, n2);
+                    operation = 1;
+
+                } else if(actualItem == '-') {
+                    result = calc.minus(n1, n2);
+                    operation = 1;
+                }
+            }
+            
+            // atualiza valores do array para próxima iteração
+            if(operation) {
+                // indice anterior para o resultado da operação
+                upperValueArray[i - 1] = result;
+                // remove os itens já utilizados na operação
+                upperValueArray.splice(i, 2);
+                // atualiza o valor do indice
+                i = 0;
             }
         }
 
