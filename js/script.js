@@ -49,6 +49,11 @@ class Calculator {
             }
         }
 
+        // informa necessidade de reset 
+        if(result) {
+            calc.reset = 1;
+        }
+
         this.upperValue.textContent = result;
         this.resultValue.textContent = result;
     }
@@ -56,8 +61,16 @@ class Calculator {
     btnPress() {
         let input = this.textContent;
         let upperValue = calc.upperValue.textContent;
+        
         // verifica se tem somente números
         var reg = new RegExp('^\\d+$');
+
+        // limpa display para novas operações
+        if(calc.reset && reg.test(input)) {
+            upperValue = '0';
+        }
+        // retorna o reset para o valor padrão
+        calc.reset = 0;
         
         // chama o método para limpar o display
         if(input == 'AC') {
