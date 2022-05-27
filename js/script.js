@@ -21,6 +21,11 @@ class Calculator {
         }
     }
 
+    refreshValues(total) {
+        this.upperValue.textContent = total;
+        this.resultValue.textContent = total;
+    }
+
     // resolução da operação
     resolution() {
         // explode string em um array
@@ -54,14 +59,14 @@ class Calculator {
             calc.reset = 1;
         }
 
-        this.upperValue.textContent = result;
-        this.resultValue.textContent = result;
+        // atualiza os totais 
+        calc.refreshValues(result);
     }
 
     btnPress() {
         let input = this.textContent;
         let upperValue = calc.upperValue.textContent;
-        
+
         // verifica se tem somente números
         var reg = new RegExp('^\\d+$');
 
