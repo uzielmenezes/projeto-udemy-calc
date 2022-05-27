@@ -21,6 +21,23 @@ class Calculator {
         }
     }
 
+    division(n1, n2) {
+        return parseFloat(n1) / parseFloat(n2);
+    }
+
+    multiplication(n1, n2) {
+        return parseFloat(n1) * parseFloat(n2);
+    }
+
+    minus(n1, n2) {
+        return parseFloat(n1) - parseFloat(n2);
+    }
+
+    sum(n1, n2) {
+        return parseFloat(n1) + parseFloat(n2);
+    }
+
+    // atualiza os valores
     refreshValues(total) {
         this.upperValue.textContent = total;
         this.resultValue.textContent = total;
@@ -36,21 +53,23 @@ class Calculator {
 
         for(let i = 0; i <= l; i++) {
             let actualItem = upperValueArray[i];
+            let n1 = upperValueArray[i - 1];
+            let n2 = upperValueArray[i + 1];
 
             if (actualItem == '/') {
-                result = parseFloat(upperValueArray[i - 1]) / parseFloat(upperValueArray[i + 1]);
+                result = calc.division(n1, n2);
             }
 
             if (actualItem == 'x') {
-                result = parseFloat(upperValueArray[i - 1]) * parseFloat(upperValueArray[i + 1]);
+                result = calc.multiplication(n1, n2);
             }
 
             if (actualItem == '-') {
-                result = parseFloat(upperValueArray[i - 1]) - parseFloat(upperValueArray[i + 1]);
+                result = calc.minus(n1, n2);
             }
 
             if (actualItem == '+') {
-                result = parseFloat(upperValueArray[i - 1]) + parseFloat(upperValueArray[i + 1]);
+                result = calc.sum(n1, n2);
             }
         }
 
