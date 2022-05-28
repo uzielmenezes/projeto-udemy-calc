@@ -102,6 +102,7 @@ class Calculator {
     btnPress() {
         let input = this.textContent;
         let upperValue = calc.upperValue.textContent;
+        let resultValue = calc.resultValue;        
 
         // verifica se tem somente números
         var reg = new RegExp('^\\d+$');
@@ -109,10 +110,11 @@ class Calculator {
         // limpa display para novas operações
         if(calc.reset && reg.test(input)) {
             upperValue = '0';
+            resultValue.textContent = '0';            
         }
         // retorna o reset para o valor padrão
         calc.reset = 0;
-        
+
         // chama o método para limpar o display
         if(input == 'AC') {
             calc.clearValues();
